@@ -27,5 +27,6 @@
 
 ## index
 
-1. スレッドを動かしてみよう
-    1. Contdown.java
+1. GetStarted - スレッドを動かしてみよう
+    1. ContDownTimer.java
+1. Words - 用語
