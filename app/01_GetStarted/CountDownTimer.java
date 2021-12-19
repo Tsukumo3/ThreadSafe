@@ -5,14 +5,12 @@ class CountDownTimer extends Thread{
     private int Counter = 0;
     private String TimerName = "";
 
-    CountDownTimer(String aName)
-    {
+    CountDownTimer(String aName) {
         this.TimerName = aName;
         return;
     }
 
-    private String GetTimerName()
-    {
+    private String GetTimerName() {
         return TimerName;
     }
 
@@ -25,27 +23,23 @@ class CountDownTimer extends Thread{
         return;
     }
 
-    private void tick()
-    {
+    private void tick() {
         System.out.println(this);
         Counter += 1;
         return;
     }
 
-    private void beep()
-    {
+    private void beep() {
         System.out.println(this +" === Finish: " + GetTimerName() + " ===");
         return;
     }
 
-    private Boolean isMaximumCount()
-    {
+    private Boolean isMaximumCount() {
         return Counter == MAX_COUNT ? true : false;
     }
 
     @Override
-	public String toString()
-	{
+	public String toString() {
 		StringBuffer aBuffer = new StringBuffer();
 		Class<?> aClass = this.getClass();
 		aBuffer.append(aClass.getName());
@@ -57,8 +51,7 @@ class CountDownTimer extends Thread{
 		return aBuffer.toString();
 	}
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         CountDownTimer timerA = new CountDownTimer("A");
         CountDownTimer timerB = new CountDownTimer("B");
         CountDownTimer timerC = new CountDownTimer("C");
