@@ -80,7 +80,33 @@ Client -> Client: continue
 
 ## 実装 - Producer-Consumer-Problem
 
-* 同期の実装前
+- Bufferでは共有オブジェクトを管理している
+    - Producer: Bufferに値(1)を設定する
+    - Consumer: Bufferに値(0)を設定する
+- このBufferの管理部分を同期(syncronized)する
+
+```
+public synchronized int getItem(){
+    return this.item;
+}
+
+public synchronized void setItem(int delivery){
+    this.item = delivery;
+}
+```
+
+- Consumer, Producer共にアクセス制御の機構を持たせている
+
+```
+if(!commonBuffer.isEmpty()){
+    System.out.println("Producer: FETAL ERROR: Buffer is not Empty");
+}else{
+    System.out.println("Producer: ready - count:" + Counter);
+    commonBuffer.setItem(obj);
+    Counter++;
+}
+```
+
 ```
 $ java Producer_Consumer_Problem
 Producer: start

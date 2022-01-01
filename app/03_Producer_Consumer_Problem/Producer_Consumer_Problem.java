@@ -99,11 +99,11 @@ class Buffer{
         return item == 0 ? true : false;
     }
 
-    public int getItem(){
+    public synchronized int getItem(){
         return this.item;
     }
 
-    public void setItem(int delivery){
+    public synchronized void setItem(int delivery){
         this.item = delivery;
     }
 }
