@@ -9,7 +9,7 @@
 
 ## Producer-Consumer-Problem - 生産者/消費者 問題
 
-    ```
+```
     @startuml
     [*] --> Producer
     [*] --> Consumer
@@ -18,15 +18,15 @@
     Producer --> Buffer : ready
     Consumer --> Consumer
     @enduml
-    ```
+```
 
-    - 上記の場合、次の問題のある動作が惣菜する
+- 上記の場合、次の問題のある動作が惣菜する
     - Producerは、バッファに空きができるまでデータを入れることができない
     - Consumerは、バッファが空の間はデータを取り出すことができない
-    - こうした問題に対応しなければならない
+- こうした問題に対応しなければならない
 
 
-    ```
+```
     @startuml
     [*] --> Producer
     [*] --> Consumer
@@ -35,15 +35,15 @@
     Producer --> Buffer : ready
     Consumer --> Consumer
     @enduml
-    ```
+```
 
 ## 同期
 - ConsumerはProducerが`ready`をしないと`use`を実行しない
     - 部品がBufferにないときに`use`させない
-    - 読み出しでロックをする
+    - 読み出しで**ロック**をする
 - ProducerはConsumerが`used`をしないと`make`を実行しない
     - 部品がBufferにあるときに`make`させない
-    - 書き込みでロックする
+    - 書き込みで**ロック**する
 - 同期
     - 複数のスレッド/プロセスが待ち合わせを行いタイミングをあわせて動作すること
 
